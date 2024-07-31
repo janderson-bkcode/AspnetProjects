@@ -1,0 +1,39 @@
+@AllHandsMaio2024_HostAddress = http://localhost:5121
+
+GET {{AllHandsMaio2024_HostAddress}}/
+
+###
+
+GET {{AllHandsMaio2024_HostAddress}}/products
+
+###
+
+POST {{AllHandsMaio2024_HostAddress}}/products
+Content-Type: application/json
+
+{ 
+  "Name": "iPhone 18", 
+  "Price": 20999.00,
+  "BrandId": 1
+}
+
+###
+
+GET {{AllHandsMaio2024_HostAddress}}/products/9?includeBrand=false
+
+###
+
+PUT {{AllHandsMaio2024_HostAddress}}/products/1
+Content-Type: application/json
+
+{
+  "Name": "teste 2", 
+  "Price": 7999.00,
+  "BrandId": 1
+}
+
+###
+
+DELETE {{AllHandsMaio2024_HostAddress}}/products/6
+
+###

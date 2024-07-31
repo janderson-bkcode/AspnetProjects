@@ -1,0 +1,29 @@
+@model IEnumerable<Planeta>
+
+@{
+    ViewData["Title"] = "Planetas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Símbolo</th>
+            <th>Elemento</th>
+            <th>Casa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var planeta in Model)
+        {
+            <tr>
+                <td>@planeta.Nome</td>  
+                <td>@planeta.Simbolo</td>
+                <td>@planeta.Elemento</td>
+                <td>@planeta.Casa</td>
+            </tr>
+        }
+    </tbody>
+</table>

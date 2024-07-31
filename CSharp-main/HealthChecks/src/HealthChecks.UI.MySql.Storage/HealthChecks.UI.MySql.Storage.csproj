@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageTags>$(PackageTags);MySql</PackageTags>
+    <Description>HealthChecks.UI.MySql.Storage package contains the required classes to use the MySql database provider in the UI</Description>
+    <VersionPrefix>$(HealthCheckUIMySqlStorage)</VersionPrefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0 " />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HealthChecks.UI.Data\HealthChecks.UI.Data.csproj" />
+  </ItemGroup>
+
+</Project>

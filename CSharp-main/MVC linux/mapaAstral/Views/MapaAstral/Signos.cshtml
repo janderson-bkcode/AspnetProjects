@@ -1,0 +1,31 @@
+@model IEnumerable<Signo>
+
+@{
+    ViewData["Title"] = "Signos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de início</th>
+            <th>Data de fim</th>
+            <th>Elemento</th>
+            <th>Regente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var signo in Model)
+        {
+            <tr>
+                <td>@signo.Nome</td>
+                <td>@signo.DataInicio.ToString("dd/MM/yyyy")</td>
+                <td>@signo.DataFim.ToString("dd/MM/yyyy")</td>
+                <td>@signo.Elemento</td>
+                <td>@signo.Regente</td>
+            </tr>
+        }
+    </tbody>
+</table>

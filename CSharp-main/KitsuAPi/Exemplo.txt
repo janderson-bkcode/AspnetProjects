@@ -1,0 +1,31 @@
+Exemplo 1: Obter informações básicas de um anime pelo ID
+
+
+GET https://kitsu.io/api/edge/anime/1
+
+Este exemplo retorna informações básicas do anime com ID 1, incluindo o título, a descrição, o número de episódios, a pontuação, etc.
+
+Exemplo 2: Obter uma lista de animes com base em filtros
+
+GET https://kitsu.io/api/edge/anime?filter[status]=finished&filter[rating]=pg-13&sort=-averageRating
+Este exemplo retorna uma lista de animes que têm o status "finalizado" e a classificação "PG-13". A lista é ordenada pela média de pontuação em ordem decrescente.
+
+Exemplo 3: Pesquisar um anime por palavra-chave
+
+GET https://kitsu.io/api/edge/anime?filter[text]=naruto
+Este exemplo retorna uma lista de animes que contêm a palavra-chave "naruto" no título ou na descrição.
+
+Exemplo 4: Obter uma lista de personagens de um anime pelo ID
+GET https://kitsu.io/api/edge/anime/1/characters
+Este exemplo retorna uma lista de personagens que aparecem no anime com ID 1.
+
+Exemplo 5: Obter uma lista de episódios de um anime pelo ID
+GET https://kitsu.io/api/edge/anime/1/episodes
+Este exemplo retorna uma lista de episódios do anime com ID 1, incluindo o título, a sinopse, a duração e a data de lançamento.
+
+Exemplo 6: Obter uma lista de categorias de um anime pelo ID
+GET https://kitsu.io/api/edge/anime/1/categories
+Este exemplo retorna uma lista de categorias às quais o anime com ID 1 pertence
+
+Exemplo 7: Obter uma lista de estúdios que produziram um anime pelo ID
+GET https://kitsu.io/api/edge/anime/1/anime-productions

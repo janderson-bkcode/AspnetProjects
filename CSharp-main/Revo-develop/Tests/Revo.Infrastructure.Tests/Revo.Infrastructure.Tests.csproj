@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Authors>Revo Framework</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EventSourcing\**" />
+    <EmbeddedResource Remove="EventSourcing\**" />
+    <None Remove="EventSourcing\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="3.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Revo.Infrastructure\Revo.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Revo.Testing\Revo.Testing.csproj" />
+  </ItemGroup>
+
+</Project>

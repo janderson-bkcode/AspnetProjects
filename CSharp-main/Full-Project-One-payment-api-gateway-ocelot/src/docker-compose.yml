@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  identity-provider:
+    image: identity-provider:dev
+    container_name: IdentityProvider-Development
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5005:80"
+      - "5006:443"
+    build:
+      context: ./Web/IdentityProvider
+      dockerfile: Dockerfile
+   
+  payment-api:
+    image: payment-api:dev
+    container_name: api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5002:80"
+    build:
+      context: ./Web/Payment.Api
+      dockerfile: Dockerfile 

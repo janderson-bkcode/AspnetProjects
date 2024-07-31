@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="1fd59f42-2886-443a-b092-d959a235ec3f" />
+          <option name="name" value="UserDB" />
+          <option name="dbmsName" value="MSSQL" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/src/UserDB/dbo/Tables/User.sql" />
+              <option value="file://$PROJECT_DIR$/src/UserDB/dbo/StoredProcedures/spCustomer_Delete.sql" />
+              <option value="file://$PROJECT_DIR$/src/UserDB/dbo/StoredProcedures/spCustomer_Get.sql" />
+              <option value="file://$PROJECT_DIR$/src/UserDB/dbo/StoredProcedures/spCustomer_GetAll.sql" />
+              <option value="file://$PROJECT_DIR$/src/UserDB/dbo/StoredProcedures/spCustomer_Insert.sql" />
+              <option value="file://$PROJECT_DIR$/src/UserDB/dbo/StoredProcedures/spCustomer_Update.sql" />
+            </array>
+          </option>
+          <option name="remarks" value="Database Project" />
+          <option name="outPath" value="$PROJECT_DIR$/src/UserDB" />
+          <option name="codeStyleName" value="Visual Studio Database Project" />
+          <option name="outLayout" value="File per object by schema.groovy" />
+          <option name="scriptOptions">
+            <map>
+              <entry key="ConstraintContext" value="CONSTRAINT_IN_TABLE" />
+              <entry key="MsVsDdlCompatibility" value="1" />
+              <entry key="QualifyWithSchema" value="ALWAYS" />
+              <entry key="Reformat" value="1" />
+              <entry key="UseSemicolon" value="1" />
+            </map>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

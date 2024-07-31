@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E1D635B7-5E67-48DE-BCD1-3A2A6B0B5C53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoRazorBKBank", "src\ProjetoRazorBKBank\ProjetoRazorBKBank.csproj", "{F6CE27B2-6BDF-46E2-AEC0-9AF6F45F2024}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6CE27B2-6BDF-46E2-AEC0-9AF6F45F2024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6CE27B2-6BDF-46E2-AEC0-9AF6F45F2024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6CE27B2-6BDF-46E2-AEC0-9AF6F45F2024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6CE27B2-6BDF-46E2-AEC0-9AF6F45F2024}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F6CE27B2-6BDF-46E2-AEC0-9AF6F45F2024} = {E1D635B7-5E67-48DE-BCD1-3A2A6B0B5C53}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+- develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- group: ci-nuget-vars
+  
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '7.0.x'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'tool'
+    arguments: 'update -g Cake.Tool --version 0.38.5'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'dotnet-cake --Target="CI" --Configuration="Release" --ReleaseNuGetApiKey="$(NUGET_ORG_API_KEY)" --PreReleaseNuGetApiKey="$(GITHUB_API_KEY)"'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: './build/packages/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '7ff8258b-dd3c-4007-9d06-7609742e93cf/f4e837d9-074e-4374-afa0-7366d34fe578'
