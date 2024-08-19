@@ -1,11 +1,11 @@
 ﻿namespace Api.Endpoints.WeatherForeCast;
 
-public class GetWeatherForecastHandler: IRequestHandler<GetWeatherForeCastQuery,Models.WeatherForeCast[]>
+public class GetWeatherForecastHandler : IRequestHandler<GetWeatherForeCastQuery, Models.WeatherForeCast[]>
 {
-    public Task<Models.WeatherForeCast[]> 
+    public Task<Models.WeatherForeCast[]>
         Handle(GetWeatherForeCastQuery request, CancellationToken cancellationToken)
     {
-        string[] summaries = new[]
+        string[] summaries =
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };

@@ -10,7 +10,6 @@ public class ApiVersionOperationFilter : IOperationFilter
         var apiVersionMetadata = actionMetadata
             .Any(metadataItem => metadataItem is ApiVersionMetadata);
         if (apiVersionMetadata)
-        {
             operation.Parameters.Add(new OpenApiParameter
             {
                 Name = "API-Version",
@@ -22,6 +21,5 @@ public class ApiVersionOperationFilter : IOperationFilter
                     Default = new OpenApiString("1.0")
                 }
             });
-        }
     }
 }

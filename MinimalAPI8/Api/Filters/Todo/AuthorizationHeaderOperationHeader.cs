@@ -8,10 +8,7 @@ public class AuthorizationHeaderOperationHeader : IOperationFilter
         var isAuthorized = actionMetadata.Any(metadataItem => metadataItem is AuthorizeAttribute);
         var allowAnonymous = actionMetadata.Any(metadataItem => metadataItem is AllowAnonymousAttribute);
 
-        if (!isAuthorized || allowAnonymous)
-        {
-            return;
-        }
+        if (!isAuthorized || allowAnonymous) return;
 
         if (operation.Parameters == null)
             operation.Parameters = new List<OpenApiParameter>();
@@ -19,7 +16,7 @@ public class AuthorizationHeaderOperationHeader : IOperationFilter
         operation.Security = new List<OpenApiSecurityRequirement>();
 
         //Add JWT bearer type
-        operation.Security.Add(new OpenApiSecurityRequirement()
+        operation.Security.Add(new OpenApiSecurityRequirement
             {
                 {
                     new OpenApiSecurityScheme

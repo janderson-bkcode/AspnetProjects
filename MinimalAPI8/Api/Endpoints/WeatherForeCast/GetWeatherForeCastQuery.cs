@@ -2,5 +2,4 @@
 
 public class GetWeatherForeCastQuery : IRequest<Models.WeatherForeCast[]>
 {
-    
 }

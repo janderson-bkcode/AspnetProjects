@@ -4,10 +4,11 @@ public class TodoItemInput
 {
     public string? Title { get; set; }
     public bool IsCompleted { get; set; }
-    
+
     public class TodoItemInputValidator : AbstractValidator<TodoItemInput>
     {
         private readonly TodoDbContext _todoDbContext;
+
         public TodoItemInputValidator(IDbContextFactory<TodoDbContext> dbContextFactory)
         {
             _todoDbContext = dbContextFactory.CreateDbContext();

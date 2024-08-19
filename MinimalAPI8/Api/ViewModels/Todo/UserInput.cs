@@ -4,7 +4,7 @@ public class UserInput
 {
     public string? Username { get; set; }
     public string? Password { get; set; }
-    
+
     public class UserInputValidator : AbstractValidator<UserInput>
     {
         public UserInputValidator()

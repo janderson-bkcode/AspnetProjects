@@ -32,13 +32,9 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
         var responseStatusCode = response.StatusCode;
 
         if (!getToken)
-        {
             Assert.Equal(HttpStatusCode.NoContent, responseStatusCode);
-        }
         else
-        {
             Assert.Equal(HttpStatusCode.Unauthorized, responseStatusCode);
-        }
     }
 
     [Theory]
@@ -57,13 +53,9 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
         var responseStatusCode = response.StatusCode;
 
         if (!getToken)
-        {
             Assert.Equal(HttpStatusCode.NotFound, responseStatusCode);
-        }
         else
-        {
             Assert.Equal(HttpStatusCode.Unauthorized, responseStatusCode);
-        }
     }
 
     [Theory]
@@ -84,13 +76,9 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
         var responseStatusCode = response.StatusCode;
 
         if (!getToken)
-        {
             Assert.Equal(HttpStatusCode.NoContent, responseStatusCode);
-        }
         else
-        {
             Assert.Equal(HttpStatusCode.Unauthorized, responseStatusCode);
-        }
     }
 
     [Theory]
@@ -111,13 +99,9 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
         var responseStatusCode = response.StatusCode;
 
         if (!getToken)
-        {
             Assert.Equal(HttpStatusCode.NotFound, responseStatusCode);
-        }
         else
-        {
             Assert.Equal(HttpStatusCode.Unauthorized, responseStatusCode);
-        }
     }
 
     [Theory]
@@ -190,13 +174,9 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
         var responseStatusCode = response.StatusCode;
 
         if (!getToken)
-        {
             Assert.Equal(HttpStatusCode.NotFound, responseStatusCode);
-        }
         else
-        {
             Assert.Equal(HttpStatusCode.Unauthorized, responseStatusCode);
-        }
     }
 
     [Theory]
@@ -265,7 +245,7 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
         var responseStatusCode = response.StatusCode;
         Assert.Equal(HttpStatusCode.OK, responseStatusCode);
 
-        for (int i = 0; i < 29; i++)
+        for (var i = 0; i < 29; i++)
         {
             response = await _httpClient.GetAsync("/health");
             responseStatusCode = response.StatusCode;
@@ -286,7 +266,7 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
         var responseStatusCode = response.StatusCode;
         Assert.Equal(HttpStatusCode.OK, responseStatusCode);
 
-        for (int i = 0; i < 59; i++)
+        for (var i = 0; i < 59; i++)
         {
             response = await _httpClient.GetAsync("/health");
             responseStatusCode = response.StatusCode;

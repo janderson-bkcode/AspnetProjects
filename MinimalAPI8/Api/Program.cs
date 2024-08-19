@@ -1,18 +1,7 @@
-using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
-using System.Net.Http.Headers;
-using System.Threading.RateLimiting;
 using Api.Endpoints.Todo;
 using Api.Filters.Todo;
 using Api.Middlewares;
 using Api.ViewModels.Todo;
-using Asp.Versioning;
-using Carter;
-using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Microsoft.OpenApi.Models;
-using MinimalApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
@@ -41,13 +30,11 @@ builder.Services.AddRateLimiter(limiterOptions =>
         return new ValueTask();
     };
 
-    limiterOptions.AddPolicy(policyName: jwtPolicyName, partitioner: httpContext =>
+    limiterOptions.AddPolicy(jwtPolicyName, httpContext =>
     {
         var tokenValue = string.Empty;
         if (AuthenticationHeaderValue.TryParse(httpContext.Request.Headers["Authorization"], out var authHeader))
-        {
             tokenValue = authHeader.Parameter;
-        }
 
         var email = string.Empty;
         var rateLimitWindowInMinutes = 5;
@@ -67,7 +54,7 @@ builder.Services.AddRateLimiter(limiterOptions =>
             }
         }
 
-        return RateLimitPartition.GetFixedWindowLimiter(email, _ => new FixedWindowRateLimiterOptions()
+        return RateLimitPartition.GetFixedWindowLimiter(email, _ => new FixedWindowRateLimiterOptions
         {
             PermitLimit = string.IsNullOrEmpty(email) ? permitLimitAnonymous : permitLimitAuthorized,
             Window = TimeSpan.FromMinutes(rateLimitWindowInMinutes),
@@ -80,9 +67,7 @@ static string GetUserEndPoint(HttpContext context)
 {
     var tokenValue = string.Empty;
     if (AuthenticationHeaderValue.TryParse(context.Request.Headers["Authorization"], out var authHeader))
-    {
         tokenValue = authHeader.Parameter;
-    }
 
     var email = "";
     if (!string.IsNullOrEmpty(tokenValue))
@@ -116,14 +101,14 @@ builder.Services.AddDbContextFactory<TodoDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setup =>
 {
-    setup.SwaggerDoc("v1", new OpenApiInfo()
+    setup.SwaggerDoc("v1", new OpenApiInfo
     {
         Description =
             "ASP.NET Core 8.0 - Minimal API Example - Todo API implementation using ASP.NET Core Minimal API," +
             "Entity Framework Core, Token authentication, Versioning, Unit Testing and Open API.",
         Title = "Todo Api",
         Version = "v1",
-        Contact = new OpenApiContact()
+        Contact = new OpenApiContact
         {
             Name = "anuraj",
             Url = new Uri("https://dotnetthoughts.net")
@@ -152,10 +137,7 @@ builder.Services.AddScoped<IValidator<UserInput>, UserInput.UserInputValidator>(
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
+if (app.Environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
 var versionSet = app.NewApiVersionSet()
     .HasApiVersion(new ApiVersion(1, 0))
@@ -172,10 +154,7 @@ app.UseAuthorization();
 
 var scope = app.Services.CreateScope();
 var databaseContext = scope.ServiceProvider.GetService<TodoDbContext>();
-if (databaseContext != null)
-{
-    databaseContext.Database.EnsureCreated();
-}
+if (databaseContext != null) databaseContext.Database.EnsureCreated();
 
 app.MapGroup("/todoitems")
     .MapApiEndpoints()
@@ -202,7 +181,7 @@ app.MapGet("/health", async (HealthCheckService healthCheckService) =>
             ? Results.Ok(report)
             : Results.StatusCode(StatusCodes.Status503ServiceUnavailable);
     }).WithOpenApi()
-    .WithTags(new[] { "Health" })
+    .WithTags("Health")
     .RequireRateLimiting(jwtPolicyName)
     .Produces(200)
     .ProducesProblem(503)
@@ -218,4 +197,6 @@ app.UseExceptionHandler();
 app.Run();
 
 //For integration testing
-public partial class Program { }
+public partial class Program
+{
+}
