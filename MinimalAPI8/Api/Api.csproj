@@ -28,10 +28,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Remove="Entities\**" />
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
-      <Content Remove="Entities\**" />
     </ItemGroup>
 
     <ItemGroup>
