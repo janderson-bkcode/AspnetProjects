@@ -31,4 +31,8 @@
       <ProjectReference Include="..\Api\Api.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Todo\UnitTest1.cs" />
+    </ItemGroup>
+
 </Project>

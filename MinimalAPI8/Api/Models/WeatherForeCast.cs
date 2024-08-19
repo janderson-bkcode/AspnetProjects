@@ -1,4 +1,4 @@
-﻿namespace Api.Entities;
+﻿namespace Api.Models;
 
 public record WeatherForeCast(DateOnly Date, int TemperatureC, string? Summary)
 {

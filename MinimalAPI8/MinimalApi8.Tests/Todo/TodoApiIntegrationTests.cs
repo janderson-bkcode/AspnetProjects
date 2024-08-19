@@ -4,7 +4,6 @@ using System.Text;
 using System.Text.Json;
 using Api.ViewModels.Todo;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace MinimalApi8.Tests.Todo;
 

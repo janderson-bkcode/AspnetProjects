@@ -1,11 +1,8 @@
-﻿using Api.Entities;
-using MediatR;
+﻿namespace Api.Endpoints.WeatherForeCast;
 
-namespace Api;
-
-public class GetWeatherForecastHandler: IRequestHandler<GetWeatherForeCastQuery,WeatherForeCast[]>
+public class GetWeatherForecastHandler: IRequestHandler<GetWeatherForeCastQuery,Models.WeatherForeCast[]>
 {
-    public Task<WeatherForeCast[]> 
+    public Task<Models.WeatherForeCast[]> 
         Handle(GetWeatherForeCastQuery request, CancellationToken cancellationToken)
     {
         string[] summaries = new[]
@@ -14,7 +11,7 @@ public class GetWeatherForecastHandler: IRequestHandler<GetWeatherForeCastQuery,
         };
 
         var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForeCast
+                new Models.WeatherForeCast
                 (
                     DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                     Random.Shared.Next(-20, 55),

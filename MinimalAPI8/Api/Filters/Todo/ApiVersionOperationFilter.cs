@@ -1,9 +1,4 @@
-﻿using Asp.Versioning;
-using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
-namespace Api.Filters.Todo;
+﻿namespace Api.Filters.Todo;
 
 public class ApiVersionOperationFilter : IOperationFilter
 {

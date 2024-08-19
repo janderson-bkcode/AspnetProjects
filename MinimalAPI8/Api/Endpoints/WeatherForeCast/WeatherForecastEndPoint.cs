@@ -1,8 +1,4 @@
-﻿using Api.Entities;
-using Carter;
-using MediatR;
-
-namespace Api;
+﻿namespace Api.Endpoints.WeatherForeCast;
 
 public class WeatherForecastEndPoint : ICarterModule
 {
@@ -12,7 +8,7 @@ public class WeatherForecastEndPoint : ICarterModule
         group.MapGet("", GetForecast);
     }
    
-    private static async Task<WeatherForeCast[]> GetForecast(ISender sender)
+    private static async Task<Models.WeatherForeCast[]> GetForecast(ISender sender)
     {
         return await sender.Send(new GetWeatherForeCastQuery());
     }

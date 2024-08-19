@@ -1,8 +1,4 @@
-﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using MinimalApi.Data;
-
-namespace Api.ViewModels.Todo;
+﻿namespace Api.ViewModels.Todo;
 
 public class TodoItemInput
 {

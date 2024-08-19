@@ -1,9 +1,6 @@
-﻿using Api.Entities;
-using MediatR;
+﻿namespace Api.Endpoints.WeatherForeCast;
 
-namespace Api;
-
-public class GetWeatherForeCastQuery : IRequest<WeatherForeCast[]>
+public class GetWeatherForeCastQuery : IRequest<Models.WeatherForeCast[]>
 {
     
 }

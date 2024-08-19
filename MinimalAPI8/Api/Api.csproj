@@ -31,10 +31,20 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+      <Content Remove="Entities\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Compile Remove="ViewModels\Todo\TodoItemInputValidator.cs" />
+      <Compile Remove="Entities\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Entities\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Entities\**" />
     </ItemGroup>
 
 </Project>

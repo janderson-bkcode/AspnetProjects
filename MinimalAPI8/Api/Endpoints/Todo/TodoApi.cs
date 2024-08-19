@@ -1,13 +1,7 @@
-﻿using System.Security.Claims;
-using Api.Models;
-using Api.ViewModels;
+﻿using Api.Models.Todo;
 using Api.ViewModels.Todo;
-using FluentValidation;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MinimalApi.Data;
 
-namespace MinimalApi;
+namespace Api.Endpoints.Todo;
 
 public static class TodoApi
 {

@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Api.ViewModels.Todo;
+﻿namespace Api.ViewModels.Todo;
 
 public class UserInput
 {
