@@ -110,8 +110,8 @@ builder.Services.AddSwaggerGen(setup =>
         Version = "v1",
         Contact = new OpenApiContact
         {
-            Name = "anuraj",
-            Url = new Uri("https://dotnetthoughts.net")
+            Name = "Janderson Gonçalves",
+            Url = new Uri("https://github.com/janderson-code")
         }
     });
 
