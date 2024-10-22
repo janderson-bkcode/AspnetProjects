@@ -120,6 +120,7 @@ public class TodoApiIntegrationTests : IClassFixture<WebApplicationFactory<Progr
             new StringContent(JsonSerializer.Serialize(new TodoItemInput { Title = "Test", IsCompleted = false }),
                 Encoding.UTF8, "application/json"));
         var responseStatusCode = response.StatusCode;
+        
         if (!getToken)
         {
             Assert.Equal(HttpStatusCode.Created, responseStatusCode);

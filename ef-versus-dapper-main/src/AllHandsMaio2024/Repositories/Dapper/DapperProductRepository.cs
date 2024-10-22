@@ -33,7 +33,7 @@ public class DapperProductRepository : IProductRepository
                      $"LEFT JOIN Brands B ON B.Id = P.BrandId " +
                      $"WHERE P.Id = @ProductId",
                 param: new { ProductId = id },
-                map: (product, brand) =>
+                map: (product, brand) => 
                 {
                     product.Brand = brand;
                     return product;

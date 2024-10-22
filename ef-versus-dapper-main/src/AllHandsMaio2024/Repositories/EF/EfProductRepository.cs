@@ -33,7 +33,7 @@ public class EfProductRepository : IProductRepository
 
     public Product Add(Product newProduct)
     {
-        if (newProduct.BrandId.HasValue)
+        if (newProduct.BrandId.HasValue)                                                    
         {
             newProduct.Brand = context.Brands
                 .FirstOrDefault(x => x.Id == newProduct.BrandId.Value);

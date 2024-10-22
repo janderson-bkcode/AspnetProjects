@@ -1,9 +1,12 @@
 using Api.Endpoints.Todo;
 using Api.Filters.Todo;
 using Api.Middlewares;
+using Api.Validation;
 using Api.ViewModels.Todo;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders().AddConsole();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCarter();
@@ -11,8 +14,11 @@ builder.Services.AddHealthChecks();
 
 //Global Exception Handler
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddExceptionHandler<ValidationExceptionHandler>();
 builder.Services.AddProblemDetails();
 builder.Services.AddMediatR(c => { c.RegisterServicesFromAssembly(typeof(Program).Assembly); });
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
 
 
 var jwtPolicyName = "jwt";
@@ -174,6 +180,7 @@ app.MapGroup("/todoitems")
         response.Headers.TryAdd("X-Response-Time", $"{elapsed} milliseconds");
         return result;
     });
+
 app.MapGet("/health", async (HealthCheckService healthCheckService) =>
     {
         var report = await healthCheckService.CheckHealthAsync();
